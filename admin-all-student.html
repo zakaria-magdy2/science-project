@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container-admin">
+      <div class="loader">
+        <p>L<span class="spinner"></span>ading<span class="dots"></span></p>
+      </div>
+      <div class="sidebar">
+        <div class="title">
+          <img src="images/science-logo.png" alt="science-logo" />
+          <div class="text">
+            FACULTY OF <br />
+            <span>SCIENCE</span>
+          </div>
+        </div>
+        <ul class="list">
+          <li class="active">
+            <a href="#">ادارة الطلاب</a>
+            <img src="images/students.svg" alt="student-icon" />
+          </li>
+          <li>
+            <a href="admin-student.html">ادارة الطالب</a>
+            <img src="images/student.svg" alt="student-icon" />
+          </li>
+        </ul>
+        <button class="log-out">
+          <img src="images/log-out.svg" alt="" /> Log out
+        </button>
+      </div>
+      <div class="head">
+        <div class="info" id="userName">
+          <br />
+          اسم المسؤول :
+        </div>
+        <h2>ادارة الطلاب</h2>
+      </div>
+      <div class="content">
+        <div class="first-row">
+          <div class="box student">
+            <span
+              ><img src="images/users.svg" alt="student-icon" /> عدد طلاب - علمي
+              رياضة
+            </span>
+            <div class="num" id="numMath"></div>
+          </div>
+          <div class="box student">
+            <span
+              ><img src="images/users.svg" alt="student-icon" /> عدد طلاب - علمي
+              علوم
+            </span>
+            <div class="num" id="numScience"></div>
+          </div>
+          <div class="box state">
+            حالة النظام <br />
+            <span id="state">
+              <img
+                id="check"
+                src="images/circle-check.svg"
+                alt="circle-check"
+              />
+              مفتوح
+            </span>
+          </div>
+          <div class="box calendar">
+            <img src="images/calendar.svg" alt="" /> تم فتح النظام منذ <br />
+            <span class="date" id="date"
+              >10/6/2022 <br />
+              10:30 pm
+            </span>
+          </div>
+        </div>
+        <div class="secund-row">
+          <!-- الزر الخاص بتحميل علمي رياضة -->
+          <div class="card download" id="downloadMathBtn">
+            بيانات - <span>علمي رياضة</span>
+            <img src="images/download.svg" alt="" />
+          </div>
+
+          <!-- الزر الخاص بتحميل علمي علوم -->
+          <div class="card download" id="downloadScienceBtn">
+            بيانات - <span>علمي علوم</span>
+            <img src="images/download.svg" alt="" />
+          </div>
+
+          <div class="card" id="uploadPlacement">
+            <span>رفع بيانات الطلاب </span>
+            <img src="images/file-up.svg" alt="" />
+          </div>
+          <input
+            type="file"
+            id="inputPlacement"
+            accept=".xls,.xlsx"
+            style="display: none"
+          />
+
+          <div class="card" id="uploadResult">
+            <span>رفع النتيجة</span>
+            <img src="images/file-up.svg" alt="" />
+          </div>
+          <input
+            type="file"
+            id="inputResult"
+            accept=".xls,.xlsx"
+            style="display: none"
+          />
+
+          <div class="card control" id="control">
+            <img src="images/lock.svg" alt="lock" />
+          </div>
+        </div>
+        <div class="third-row">
+          <div class="card">
+            عدد الطلاب الذين تم تسجيلهم - علمي رياضة
+            <img src="images/file-text.svg" alt="file-text" /><br />
+            <span class="num">0</span>
+            <div class="track">
+              <span class="progres"><div class="rate"></div></span>
+            </div>
+          </div>
+          <div class="card">
+            عدد الطلاب الذين تم تسجيلهم - علمي علوم
+            <img src="images/file-text.svg" alt="file-text" /> <br />
+            <span class="num">0</span>
+            <div class="track">
+              <span class="progres"><div class="rate"></div></span>
+            </div>
+          </div>
+        </div>
+        <div class="charts-container">
+          <div class="chart-box">
+            <canvas id="chart1"></canvas>
+          </div>
+          <div class="chart-box">
+            <canvas id="chart2"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/admin-api.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="loader">
+        <p>L<span class="spinner"></span>ading<span class="dots"></span></p>
+      </div>
+
+      <div class="card">
+        <div class="head">
+          <div class="logo">
+            <img src="images/science-logo.png" alt="logo-science" />
+            <img src="images/suez-canal-logo.png" alt="logo-suez-canal" />
+          </div>
+          <h2>Faculty of Science</h2>
+          <p>Suez Canal University</p>
+        </div>
+        <form action="#">
+          <div class="input-group">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              placeholder=" "
+            />
+            <label for="username">Username</label>
+            <img src="images/user.png" alt="user" />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              placeholder=" "
+            />
+            <label for="password">Password</label>
+            <img
+              src="images/show-pass.png"
+              alt="show password"
+              id="togglePassword"
+            />
+          </div>
+
+          <!-- <div class="remember-me">
+            <input type="checkbox" id="rememberMe" />
+            <label for="rememberMe" class="switch"></label>
+            <span>Remember Me</span>
+          </div> -->
+
+          <!-- <input type="submit" class="submit-btn" value="Login" /> ارجعه لما ارفع البروجيكت -->
+          <a href="#" onclick="login()" class="submit-btn">Login</a>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

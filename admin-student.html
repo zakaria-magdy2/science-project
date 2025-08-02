@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container-admin">
+      <div class="loader">
+        <p>L<span class="spinner"></span>ading<span class="dots"></span></p>
+      </div>
+      <div class="sidebar">
+        <div class="title">
+          <img src="images/science-logo.png" alt="science-logo" />
+          <div class="text">
+            FACULTY OF <br />
+            <span>SCIENCE</span>
+          </div>
+        </div>
+        <ul class="list">
+          <li>
+            <a href="admin-all-student.html">ادارة الطلاب</a>
+            <img src="images/students.svg" alt="student-icon" />
+          </li>
+          <li class="active">
+            <a href="#">ادارة الطالب</a>
+            <img src="images/student.svg" alt="student-icon" />
+          </li>
+        </ul>
+        <button class="log-out">
+          <img src="images/log-out.svg" alt="" /> Log out
+        </button>
+      </div>
+      <div class="head">
+        <div class="info" id="userName">
+          <br />
+          اسم المسؤول :
+        </div>
+        <h2>ادارة الطالب</h2>
+      </div>
+      <div class="content-student">
+        <form action="#" id="search-form">
+          <input
+            class="search-student"
+            type="text"
+            placeholder="بحث بأستخدام الرقم القومي"
+            id="search-input"
+          />
+          <img src="images/search.svg" alt="" />
+        </form>
+
+        <div class="data none">
+          <div class="name">ذكريا مجدي محمد عوض</div>
+          <div class="info">
+            <div>الرقم القومي : <span class="id"></span></div>
+            <div>القسم : <span class="department"></span></div>
+          </div>
+        </div>
+        <div class="buttons none">
+          <div class="print" id="exportStudent">
+            طبع بيانات الطالب <img src="images/download.svg" alt="" />
+          </div>
+          <div class="control">
+            <span class="close" id="close-update">
+              قفل <img src="images/lock-black.svg" alt=""
+            /></span>
+            <span class="open" id="open-update">
+              فتح <img src="images/lock-open.svg" alt="" />
+            </span>
+          </div>
+        </div>
+        <table class="desires none" id="wish-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>الرغبة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- سيتم تعبئة البيانات هنا -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="js/main.js" defer></script>
+    <script src="js/admin-one-student-api.js" defer></script>
+  </body>
+</html>
