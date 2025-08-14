@@ -15,16 +15,25 @@ body {
 /* Start Login */
 .container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   background-image: url("../images/login-background.png");
-  background-position: center center;
   background-size: cover;
+  background-position: center;
 }
+
+/* تصغير المحتوى للموبايل */
+@media (max-width: 768px) {
+  .container > * {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+}
+
 .container .card {
   background-color: rgba(217, 217, 217, 0.911);
   width: 400px;
@@ -122,11 +131,6 @@ body {
 
 .card form .submit-btn:hover {
   background-color: #021b51;
-}
-@media (max-width: 768px) {
-  .container {
-    background-position: center top; /* أو center center حسب ما تحب */
-  }
 }
 /* End Login */
 
