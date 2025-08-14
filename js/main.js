@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initDragAndDrop();
   initSystemControl();
   initCharts();
-  // initEditControls();
-  // initWishTable();
 });
 
 if (typeof initSystemControl !== "function") {
@@ -98,53 +96,69 @@ function getDragAfterElement(container, y) {
   ).element;
 }
 // ========== [5] دوال المستخدم و API ==========
-
 async function login() {
-  const username = document.getElementById("username")?.value;
-  const password = document.getElementById("password")?.value;
+  const username = document.getElementById("username")?.value?.trim();
+  const password = document.getElementById("password")?.value?.trim();
 
   if (!username || !password) {
     alert("من فضلك أدخل اسم المستخدم وكلمة المرور");
     return;
   }
 
+  const url = `http://internalplacementapi.runasp.net/api/Auth/login?ssn=${encodeURIComponent(
+    username
+  )}&password=${encodeURIComponent(password)}`;
+
   try {
-    const response = await fetch(
-      `http://internalplacementapi.runasp.net/api/Auth/login?ssn=${username}&password=${password}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`خطأ في الاستجابة (${response.status}): ${errorText}`);
+    }
 
     const res = await response.json();
     handleLoginResponse(res);
   } catch (error) {
-    alert("فشل الاتصال بالخادم. حاول لاحقاً");
-    console.error("Login error:", error);
+    alert("بيانات الدخول غير صحيحة.");
   }
 }
 
 function handleLoginResponse(res) {
-  if (!res || !res.role) {
-    alert(res?.message || "بيانات الدخول غير صحيحة");
+  if (!res || typeof res !== "object") {
+    alert("استجابة غير متوقعة من السيرفر.");
     return;
   }
 
-  sessionStorage.setItem("name", res.name);
-  sessionStorage.setItem("ssn", res.ssn);
-  sessionStorage.setItem("field", res.field);
-  sessionStorage.setItem("token", res.token);
+  if (!res.role || !res.token) {
+    alert(res.message || "بيانات الدخول غير صحيحة.");
+    return;
+  }
+
+  try {
+    sessionStorage.setItem("name", res.name || "");
+    sessionStorage.setItem("ssn", res.ssn || "");
+    sessionStorage.setItem("field", res.field || "");
+    sessionStorage.setItem("token", res.token || "");
+  } catch (e) {
+    alert("حدث خطأ داخلي. يرجى المحاولة لاحقًا.");
+    return;
+  }
 
   const role = res.role.toLowerCase();
   switch (role) {
     case "admin":
-      window.location.href = "admin-all-student.html";
+      window.location.href = "admin-students.html";
       break;
     case "student":
       window.location.href = "select-programs.html";
       break;
     default:
-      alert("صلاحيات غير معروفة");
+      alert("صلاحيات غير معروفة.");
   }
 }

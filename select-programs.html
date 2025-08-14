@@ -6,8 +6,6 @@
     <title>Select a section sciences</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
       rel="stylesheet"
@@ -19,6 +17,7 @@
       <div class="loader">
         <p>L<span class="spinner"></span>ading<span class="dots"></span></p>
       </div>
+
       <div class="header">
         <ul>
           <li class="logo">
@@ -37,27 +36,32 @@
       </div>
 
       <div class="dragList">
-        <p>قم بسحب التخصصات وترتيبها حسب أولوياتك. الأعلى = الأكثر تفضيلا</p>
-        <ul id="sortableList" class="programs-list">
-<li draggable="true">الكيمياء<span>⋮⋮</span></li>
-          <li draggable="true">الفيزياء<span>⋮⋮</span></li>
-          <li draggable="true">فيزياء / الكيمياء <span>⋮⋮</span></li>
-          <li draggable="true">جيولوجيا <span>⋮⋮</span></li>
-          <li draggable="true">الكيمياء / الكيمياء الحيوي <span>⋮⋮</span></li>
-        </ul>
+        <p id="dragText">
+          قم بسحب التخصصات وترتيبها حسب أولوياتك. الأعلى = الأكثر تفضيلا
+        </p>
+        <ul id="sortableList" class="programs-list"></ul>
       </div>
-      <button id="submitBtn" class="submit-sections" onclick="submitList()">
+
+      <button id="submitBtn" class="submit-sections" onclick="openPhonePopup()">
         Submit
       </button>
+
       <div class="reslut-content none">
         <h2 id="resultDiv">تم غلق باب التسجيل</h2>
         <div class="result">...ستظهر النتيجة قريبا</div>
       </div>
     </div>
 
-    <script src="js/student-api.js" defer></script>
+    <!-- ✅ نافذة إدخال رقم التليفون -->
+    <div class="popup none" id="phonePopup">
+      <div class="popup-content">
+        <h3>من فضلك أدخل رقم الهاتف</h3>
+        <input type="text" id="phoneNumber" placeholder="مثال: 01012345678" />
+        <button onclick="submitPhone()">إرسال</button>
+      </div>
+    </div>
+
+    <script src="js/select-programs-api.js" defer></script>
     <script src="js/main.js" defer></script>
   </body>
 </html>
-
-

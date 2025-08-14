@@ -29,23 +29,17 @@
         </div>
         <ul class="list">
           <li>
-            <a href="admin-all-student.html">ادارة الطلاب</a>
+            <a href="admin-students.html">ادارة الطلاب</a>
             <img src="images/students.svg" alt="student-icon" />
           </li>
           <li class="active">
             <a href="#">ادارة الطالب</a>
-            <img src="images/student.svg" alt="student-icon" />
+            <img src="images/students.svg" alt="student-icon" />
           </li>
         </ul>
-        <button class="log-out">
-          <img src="images/log-out.svg" alt="" /> Log out
-        </button>
       </div>
       <div class="head">
-        <div class="info" id="userName">
-          <br />
-          اسم المسؤول :
-        </div>
+        <div class="info" id="userName">مرحبا :</div>
         <h2>ادارة الطالب</h2>
       </div>
       <div class="content-student">
@@ -56,11 +50,12 @@
             placeholder="بحث بأستخدام الرقم القومي"
             id="search-input"
           />
-          <img src="images/search.svg" alt="" />
+          <img src="images/search.svg" alt="search" id="search-btn" />
         </form>
 
         <div class="data none">
           <div class="name">ذكريا مجدي محمد عوض</div>
+          <div>رقم الهاتف : <span class="phoneNumber"></span></div>
           <div class="info">
             <div>الرقم القومي : <span class="id"></span></div>
             <div>القسم : <span class="department"></span></div>
@@ -93,6 +88,6 @@
       </div>
     </div>
     <script src="js/main.js" defer></script>
-    <script src="js/admin-one-student-api.js" defer></script>
+    <script src="js/admin-student-api.js" defer></script>
   </body>
 </html>
